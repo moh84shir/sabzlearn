@@ -1,0 +1,27 @@
+{% extends "shared/_MainLayout.html" %} {% block content %}
+<h2 class="center-align">{{ course.title }}</h2>
+<br />
+<br />
+
+<div class="container">
+  {% for session in sessions %}
+
+  <div class="#90caf9 blue lighten-3">
+    <div class="row">
+      <div class="center-align">قسمت {{ session.title }}</div>
+      <video width="100%" class="responsive-video" controls>
+        <source src="{{ session.video.url }}" />
+        your browser is not suported
+      </video>
+      <div class="align-left">
+        <a href="{{ session.video.url }}" download>دانلود این ویدئو</a>
+      </div>
+      <div class="align-right">
+        <p class="red-text">{{ session.description }}</p>
+      </div>
+    </div>
+  </div>
+  <br />
+  {% endfor %}
+</div>
+{% endblock content %}

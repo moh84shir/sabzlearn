@@ -1,0 +1,9 @@
+{% extends "shared/_MainLayout.html" %}
+
+{% block content %}
+{% for course in course_list %}
+
+<a href="/course/{{ course.pk }}">{{ course.title }}</a> 
+{% endfor %}
+ 
+{% endblock content %}
