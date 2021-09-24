@@ -1,9 +1,24 @@
-{% extends "shared/_MainLayout.html" %}
-
+{% extends "shared/_MainLayout.html" %} 
 {% block content %}
-{% for course in course_list %}
+<section>
+  <div class="products">
+    <h2 class="section-title">آخرین آموزش ها</h2>
+    <div class="products-center">
+      {% for course in course_list %}
+      <section class="product">
+        <div class="image-container">
+          <img class="product-image" src="{{ course.photo.url }}" alt="p-1" />
+        </div>
+        <div class="product-description">
+          <p class="product-title">{{ course.title }} :</p>
+          <p class="product-price">{% if course.price != 0 %}{{ course.price }}${% else %}رایگان    {% endif %}</p>
+        </div>
+        <button class="add-to-cart">اضافه کردن به سبد خرید</button>
+      </section>
 
-<a href="/course/{{ course.pk }}">{{ course.title }}</a> 
-{% endfor %}
- 
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
 {% endblock content %}
